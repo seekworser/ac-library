@@ -106,6 +106,8 @@ template <class S, S (*op)(S, S), S (*e)()> struct segtree {
         return 0;
     }
 
+    int n() {return _n;}
+
   private:
     int _n, size, log;
     std::vector<S> d;
