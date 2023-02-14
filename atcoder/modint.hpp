@@ -88,6 +88,7 @@ struct static_modint : internal::static_modint_base {
         return *this;
     }
     mint& operator/=(const mint& rhs) { return *this = *this * rhs.inv(); }
+    mint& operator=(const mint& rhs) { (*this)._v = rhs.val(); return *this; }
 
     mint operator+() const { return *this; }
     mint operator-() const { return mint() - *this; }
@@ -203,6 +204,7 @@ template <int id> struct dynamic_modint : internal::modint_base {
         return *this;
     }
     mint& operator/=(const mint& rhs) { return *this = *this * rhs.inv(); }
+    mint& operator=(const mint& rhs) { (*this)._v = rhs.val(); return *this; }
 
     mint operator+() const { return *this; }
     mint operator-() const { return mint() - *this; }
