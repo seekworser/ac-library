@@ -40,6 +40,11 @@ struct lazy_segtree {
         for (int i = 1; i <= log; i++) update(p >> i);
     }
 
+    void add(int p, S x) {
+        assert(0 <= p && p < _n);
+        (*this).set(p, (*this).get(p) + x);
+    }
+
     S get(int p) {
         assert(0 <= p && p < _n);
         p += size;
@@ -166,6 +171,8 @@ struct lazy_segtree {
         } while ((r & -r) != r);
         return 0;
     }
+
+    int n() {return (*this)._n;}
 
   private:
     int _n, size, log;
